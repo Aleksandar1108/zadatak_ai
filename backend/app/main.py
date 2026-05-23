@@ -1,10 +1,12 @@
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.config import DATA_DIR, TITLE_BASICS, TITLE_PRINCIPALS, TITLE_RATINGS
+from app.config import DATA_DIR, MANGA_CSV, TITLE_BASICS, TITLE_PRINCIPALS, TITLE_RATINGS, WALMART_CSV
 from app.service import get_top_keanu_movies
+from app.space_vampires_service import get_space_vampire_matches
+from app.walmart_regression_service import run_walmart_regression
 
-app = FastAPI(title="Keanu Reeves Movies API")
+app = FastAPI(title="Internship Tasks API")
 
 app.add_middleware(
     CORSMiddleware,
@@ -15,7 +17,7 @@ app.add_middleware(
 )
 
 
-def _ensure_data_files() -> None:
+def _ensure_keanu_files() -> None:
     missing = [
         path.name
         for path in (TITLE_BASICS, TITLE_PRINCIPALS, TITLE_RATINGS)
@@ -28,6 +30,14 @@ def _ensure_data_files() -> None:
         )
 
 
+def _ensure_manga_file() -> None:
+    if not MANGA_CSV.exists():
+        raise HTTPException(
+            status_code=500,
+            detail=f"Missing data file in {DATA_DIR}: {MANGA_CSV.name}",
+        )
+
+
 @app.get("/api/health")
 def health():
     return {"status": "ok"}
@@ -35,5 +45,25 @@ def health():
 
 @app.get("/api/keanu-reeves/top-movies")
 def top_keanu_movies(refresh: bool = Query(False)):
-    _ensure_data_files()
+    _ensure_keanu_files()
     return get_top_keanu_movies(refresh=refresh)
+
+
+@app.get("/api/space-vampires/related")
+def space_vampires_related(refresh: bool = Query(False)):
+    _ensure_manga_file()
+    return get_space_vampire_matches(refresh=refresh)
+
+
+def _ensure_walmart_file() -> None:
+    if not WALMART_CSV.exists():
+        raise HTTPException(
+            status_code=500,
+            detail=f"Missing data file in {DATA_DIR}: {WALMART_CSV.name}",
+        )
+
+
+@app.get("/api/walmart/regression")
+def walmart_regression(refresh: bool = Query(False)):
+    _ensure_walmart_file()
+    return run_walmart_regression(refresh=refresh)

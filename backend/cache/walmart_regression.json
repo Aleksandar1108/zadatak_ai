@@ -1,0 +1,203 @@
+{
+  "source_file": "Walmart.csv",
+  "train_period": {
+    "from": "05-02-2010",
+    "to": "15-02-2012"
+  },
+  "train_rows": 4770,
+  "test_rows": 1665,
+  "features": [
+    "mesec",
+    "Holiday_Flag",
+    "Temperature",
+    "Fuel_Price",
+    "CPI",
+    "Unemployment",
+    "srednja_zarada"
+  ],
+  "target": "Weekly_Sales",
+  "mse_test": 13625953237.4,
+  "intercept": -77298.088977,
+  "coefficients": [
+    {
+      "feature": "mesec",
+      "coefficient": 17686.482227
+    },
+    {
+      "feature": "Holiday_Flag",
+      "coefficient": 42557.559738
+    },
+    {
+      "feature": "Temperature",
+      "coefficient": -1664.505661
+    },
+    {
+      "feature": "Fuel_Price",
+      "coefficient": -500.96091
+    },
+    {
+      "feature": "CPI",
+      "coefficient": 185.222697
+    },
+    {
+      "feature": "Unemployment",
+      "coefficient": 3096.628562
+    },
+    {
+      "feature": "srednja_zarada",
+      "coefficient": 0.999982
+    }
+  ],
+  "correlation_table": [
+    {
+      "parameter": "mesec",
+      "mesec": 1.0,
+      "Holiday_Flag": 0.123,
+      "Temperature": 0.2359,
+      "Fuel_Price": -0.0422,
+      "CPI": 0.005,
+      "Unemployment": -0.0127,
+      "srednja_zarada": -0.0,
+      "Weekly_Sales": 0.0761
+    },
+    {
+      "parameter": "Holiday_Flag",
+      "mesec": 0.123,
+      "Holiday_Flag": 1.0,
+      "Temperature": -0.1551,
+      "Fuel_Price": -0.0783,
+      "CPI": -0.0022,
+      "Unemployment": 0.011,
+      "srednja_zarada": 0.0,
+      "Weekly_Sales": 0.0369
+    },
+    {
+      "parameter": "Temperature",
+      "mesec": 0.2359,
+      "Holiday_Flag": -0.1551,
+      "Temperature": 1.0,
+      "Fuel_Price": 0.145,
+      "CPI": 0.1769,
+      "Unemployment": 0.1012,
+      "srednja_zarada": -0.0397,
+      "Weekly_Sales": -0.0638
+    },
+    {
+      "parameter": "Fuel_Price",
+      "mesec": -0.0422,
+      "Holiday_Flag": -0.0783,
+      "Temperature": 0.145,
+      "Fuel_Price": 1.0,
+      "CPI": -0.1706,
+      "Unemployment": -0.0347,
+      "srednja_zarada": 0.0252,
+      "Weekly_Sales": 0.0095
+    },
+    {
+      "parameter": "CPI",
+      "mesec": 0.005,
+      "Holiday_Flag": -0.0022,
+      "Temperature": 0.1769,
+      "Fuel_Price": -0.1706,
+      "CPI": 1.0,
+      "Unemployment": -0.302,
+      "srednja_zarada": -0.0776,
+      "Weekly_Sales": -0.0726
+    },
+    {
+      "parameter": "Unemployment",
+      "mesec": -0.0127,
+      "Holiday_Flag": 0.011,
+      "Temperature": 0.1012,
+      "Fuel_Price": -0.0347,
+      "CPI": -0.302,
+      "Unemployment": 1.0,
+      "srednja_zarada": -0.0995,
+      "Weekly_Sales": -0.1062
+    },
+    {
+      "parameter": "srednja_zarada",
+      "mesec": -0.0,
+      "Holiday_Flag": 0.0,
+      "Temperature": -0.0397,
+      "Fuel_Price": 0.0252,
+      "CPI": -0.0776,
+      "Unemployment": -0.0995,
+      "srednja_zarada": 1.0,
+      "Weekly_Sales": 0.9573
+    },
+    {
+      "parameter": "Weekly_Sales",
+      "mesec": 0.0761,
+      "Holiday_Flag": 0.0369,
+      "Temperature": -0.0638,
+      "Fuel_Price": 0.0095,
+      "CPI": -0.0726,
+      "Unemployment": -0.1062,
+      "srednja_zarada": 0.9573,
+      "Weekly_Sales": 1.0
+    }
+  ],
+  "sample_predictions": [
+    {
+      "store": 1,
+      "date": "17-02-2012",
+      "actual_weekly_sales": 1819870.0,
+      "predicted_weekly_sales": 1485598.53
+    },
+    {
+      "store": 1,
+      "date": "24-02-2012",
+      "actual_weekly_sales": 1539387.83,
+      "predicted_weekly_sales": 1465757.54
+    },
+    {
+      "store": 1,
+      "date": "02-03-2012",
+      "actual_weekly_sales": 1688420.76,
+      "predicted_weekly_sales": 1477270.25
+    },
+    {
+      "store": 1,
+      "date": "09-03-2012",
+      "actual_weekly_sales": 1675431.16,
+      "predicted_weekly_sales": 1480951.73
+    },
+    {
+      "store": 1,
+      "date": "16-03-2012",
+      "actual_weekly_sales": 1677472.78,
+      "predicted_weekly_sales": 1470993.69
+    },
+    {
+      "store": 1,
+      "date": "23-03-2012",
+      "actual_weekly_sales": 1511068.07,
+      "predicted_weekly_sales": 1469000.2
+    },
+    {
+      "store": 1,
+      "date": "30-03-2012",
+      "actual_weekly_sales": 1649604.63,
+      "predicted_weekly_sales": 1466188.59
+    },
+    {
+      "store": 1,
+      "date": "06-04-2012",
+      "actual_weekly_sales": 1899676.88,
+      "predicted_weekly_sales": 1478537.13
+    },
+    {
+      "store": 1,
+      "date": "13-04-2012",
+      "actual_weekly_sales": 1621031.7,
+      "predicted_weekly_sales": 1480814.68
+    },
+    {
+      "store": 1,
+      "date": "20-04-2012",
+      "actual_weekly_sales": 1521577.87,
+      "predicted_weekly_sales": 1484676.67
+    }
+  ]
+}
